@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Dashboard</title>
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .dashboard-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .side-nav {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .side-nav a {
+            display: block;
+            padding: 12px;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .side-nav a:hover {
+            background-color: #575757;
+        }
+        .content {
+            width: calc(100% - 270px);
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+        }
+        .card h2 {
+            color: #4CAF50;
+        }
+        .card p {
+            font-size: 18px;
+            color: #333;
+        }
+        .card .btn {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .card .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Education Dashboard</h1>
+    </header>
+
+    <div class="dashboard-container">
+        <!-- Side Navigation -->
+        <div class="side-nav">
+            <a href="#" onclick="loadContent('home')">Home</a>
+            <a href="#" onclick="loadContent('courses')">Courses</a>
+            <a href="#" onclick="loadContent('students')">Students</a>
+            <a href="#" onclick="loadContent('analytics')">Analytics</a>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="content" id="content">
+            <!-- Default content will be loaded here -->
+            <h2>Welcome to the Education Dashboard</h2>
+            <p>Select an option from the left to view more details.</p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for dynamic content loading
+        function loadContent(section) {
+            const content = document.getElementById("content");
+            switch(section) {
+                case 'home':
+                    content.innerHTML = `
+                        <h2>Welcome to the Education Dashboard</h2>
+                        <p>Your central hub for managing educational content and progress.</p>
+                    `;
+                    break;
+                case 'courses':
+                    content.innerHTML = `
+                        <h2>Courses Overview</h2>
+                        <div class="card">
+                            <h2>Math 101</h2>
+                            <p>Introduction to basic math concepts.</p>
+                            <button class="btn">View Course</button>
+                        </div>
+                        <div class="card">
+                            <h2>Science 101</h2>
+                            <p>Fundamentals of physics, chemistry, and biology.</p>
+                            <button class="btn">View Course</button>
+                        </div>
+                    `;
+                    break;
+                case 'students':
+                    content.innerHTML = `
+                        <h2>Students Overview</h2>
+                        <div class="card">
+                            <h2>John Doe</h2>
+                            <p>Grade: A</p>
+                        </div>
+                        <div class="card">
+                            <h2>Jane Smith</h2>
+                            <p>Grade: B+</p>
+                        </div>
+                    `;
+                    break;
+                case 'analytics':
+                    content.innerHTML = `
+                        <h2>Course Analytics</h2>
+                        <div class="card">
+                            <h2>Math 101</h2>
+                            <p>Students Enrolled: 100</p>
+                            <p>Completion Rate: 85%</p>
+                        </div>
+                        <div class="card">
+                            <h2>Science 101</h2>
+                            <p>Students Enrolled: 120</p>
+                            <p>Completion Rate: 90%</p>
+                        </div>
+                    `;
+                    break;
+                default:
+                    content.innerHTML = `
+                        <h2>Welcome to the Education Dashboard</h2>
+                        <p>Select an option from the left to view more details.</p>
+                    `;
+            }
+        }
+    </script>
+</body>
+</html>
